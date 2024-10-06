@@ -8,5 +8,5 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
-/workspace/mildew-detection-in-cherry-leaves/inputs/mildew_detection_in_cherry_leaves/cherry-leaves/test
-/workspace/mildew-detection-in-cherry-leaves/inputs/mildew_detection_in_cherry_leaves/cherry-leaves/train
+inputs/mildew_detection_in_cherry_leaves/cherry-leaves/train/
+inputs/mildew_detection_in_cherry_leaves/cherry-leaves/test/

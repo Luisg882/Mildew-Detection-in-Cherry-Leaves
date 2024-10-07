@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Create function to generate the multi page Streamlit dasboard
-class Multipage:
+class MultiPage:
     def __init__(self, app_name) -> None:
         self.pages = []
         self.app_name = app_name
@@ -11,7 +11,7 @@ class Multipage:
             page_icon = "🍒"
         )
     
-    def app_page(self, title, func) -> None:
+    def add_page(self, title, func) -> None:
         self.pages.append({"title": title, "function": func})
 
     def run(self):

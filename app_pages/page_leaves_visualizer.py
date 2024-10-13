@@ -17,7 +17,11 @@ def page_leaves_visualizer_body():
     )
 
     
+<<<<<<< HEAD
     if st.checkbox("Average and variability image in both classes"):
+=======
+    if st.checkbox("Difference between average and variability image"):
+>>>>>>> 9002feecb0bc5987b40ba40c8943bd44421a1a7c
         st.warning(
             f"The average variability image between healthy and powdery mildew leaves "
             f"shows a small difference in the shape of the leaves, with healthy ones having "

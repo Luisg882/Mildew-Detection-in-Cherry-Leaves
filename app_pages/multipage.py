@@ -10,7 +10,7 @@ class MultiPage:
             page_title = self.app_name,
             page_icon = "/workspace/mildew-detection-in-cherry-leafs/static/images/leaves.png"
         )
-    
+
     def add_page(self, title, func) -> None:
         self.pages.append({"title": title, "function": func})
 

@@ -8,7 +8,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title = self.app_name,
-            page_icon = "🍒"
+            page_icon = "/workspace/mildew-detection-in-cherry-leafs/static/images/leaves.png"
         )
     
     def add_page(self, title, func) -> None:

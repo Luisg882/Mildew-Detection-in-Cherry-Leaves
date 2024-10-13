@@ -17,7 +17,7 @@ def page_mildew_detector_body():
 
     st.write(
         "Here you can download a set of mildew or healthy leaves for live prediction. "
-        "You can download the images from [here](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves)"
+        "You can download the images from [here](https://github.com/Luisg882/mildew-detection-in-cherry-leafs/tree/main/inputs/mildew_detection_in_cherry_leaves/cherry-leaves)"
     )
     st.write("---")
 

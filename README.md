@@ -88,7 +88,50 @@ These visualizations will help answer the business question of whether healthy a
 - **Model Type:** A binary classification model will be used to predict whether a cherry leaf is healthy or infected. For this project a Conventional Neural Network will be used.
 - **Performance Goal:** The model is expected to achieve a minimum accuracy of 97%, as agreed upon with the client.
 
+## Dashboard Features
 
+### Project Summary Page
+- **Project Overview:** Displays a brief summary about powdery mildew, its impact on cherry plantations, and the business need to detect this disease on leaves.
+- **Data Information:** Offers details about the dataset, including the number of images and the categories (healthy or powdery mildew).
+- **Business Requirements:** Lists the project’s objectives, including the need to visually differentiate healthy leaves from those with mildew and the prediction task.
+- **Reference Link:** A link to a detailed README file hosted on GitHub for further information.
+
+### Leaves Visualizer Page
+- **Image Comparisons:** Offers checkboxes for displaying various visual comparisons between healthy and powdery mildew leaves:
+ - **Average and Variability Image:** Shows a comparison between the average and variability of healthy and mildew-affected leaves.
+ - **Difference between Average Leaves:** Highlights subtle differences between healthy and mildew-affected leaves.
+- **Image Montage Feature:** Allows the user to generate a montage of images for visual comparison:
+ - The user selects a label (Healthy or Powdery Mildew), and the system displays a montage of sample images from the validation set. This helps visualize multiple images at once to study differences.
+
+### Mildew Detection Page
+- **Instructions for Prediction:** Explains the prediction process, including how to download cherry leaf samples for testing.
+- **File Uploader:** A widget enabling the user to upload multiple leaf images for analysis.
+Image Display & Predictions: For each uploaded image, it displays:
+ - The image itself
+ - The dimensions of the image
+ - The prediction result (whether healthy or affected by mildew)
+- **Downloadable Report:** A table summarizing the predictions for all uploaded images, with an option to download the report as a CSV file.
+
+### Hypothesis Page
+- **Main Hypothesis:** The hypothesis focuses on visual differences between healthy leaves and those with powdery mildew, such as color, texture, and pigmentation patterns.
+- **Visual Comparisons:** Discusses the lack of significant visual difference between the two leaf types, which challenges the hypothesis.
+- **Graphical Evidence:** Displays the difference between average images of both leaf types to further support the hypothesis.
+- **Machine Learning Task:** Mentions how the Machine Learning (ML) model is built to help detect these differences, achieving 97.13% accuracy, surpassing the business requirement.
+
+### ML Performance Page
+- **Labels Distribution:** A plot showing the distribution of leaf labels in the train, validation, and test sets, highlighting the balance of data.
+- **Model Training Progress:** Displays the model’s accuracy and loss over time during training, giving insights into model optimization and learning progress.
+- **Generalized Performance:** A table showing the performance (loss and accuracy) of the model on the test set to indicate how well the model generalizes to unseen data.
+
+## Manual Testing
+- **Multipage Navigation:** successfully change between pages without giving loading errors and crashing the app wile doing it.
+
+### Project Summary Page
+- **Reference Link** successfully take the user to the new page.
+
+### Leaves Visualizer Page
+- **Average and Variability Image:** wen clicked successfully load the description of the differences, and the Average image and variability of bouth healthy and powdery mildew images.
+- **Difference between Average Leaves:**
 
 ## Unfixed Bugs
 

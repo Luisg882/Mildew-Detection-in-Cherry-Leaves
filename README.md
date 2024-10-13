@@ -155,6 +155,7 @@ The content of this page is successfully loaded. No interactive features to test
 ## Fixed Bugs
 
 - The prediction of images different that 256x256px size werent able to be predicted. This was due because the code where expecting 3-channel RGB image but recieves 4-channel images. To fix it we change the code to ensure the uploaded image was properlly converted to the desired RGB format and the correct dimensions before passing it to the model for prediction.
+- Heroku was set into stack 22 and this version didn't suport python 3.8.19. Change the stack to 20 to load the app
 
 ## Unfixed Bugs
 
@@ -164,25 +165,113 @@ No other bug was found
 
 ### Heroku
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
-
 1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
+2. Select GitHub as the deployment method.
+3. Select mildew-detection-in-cherry-leafs repository.
+4. Deply the project from the main branch.
 
 ## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+1. **Pandas**
+   - **Purpose**: Pandas is a powerful library for data manipulation and analysis, providing data structures like DataFrames.
+   - **Usage Example**: In your project, you used Pandas to create a frequency DataFrame for counting images in different sets (train, validation, test) based on their labels.
+     ```python
+     df_freq = pd.DataFrame([])
+     for folder in ['train', 'validation', 'test']:
+         for label in labels:
+             df_freq = df_freq.append(
+                 pd.Series(data={'Set': folder,
+                                 'Label': label,
+                                 'Frequency': int(len(os.listdir(my_data_dir + '/' + folder + '/' + label)))}
+                           ),
+                 ignore_index=True
+             )
+     ```
+
+2. **NumPy**
+   - **Purpose**: NumPy is a library for numerical computations, providing support for large multi-dimensional arrays and matrices.
+   - **Usage Example**: You used NumPy to handle and manipulate numerical data, particularly when calculating average dimensions of resized images.
+     ```python
+     dim1_mean = int(np.array(dim1).mean())
+     dim2_mean = int(np.array(dim2).mean())
+     ```
+
+3. **Matplotlib**
+   - **Purpose**: Matplotlib is a plotting library that enables the creation of static, animated, and interactive visualizations in Python.
+   - **Usage Example**: You utilized Matplotlib to create scatter plots for visualizing resized image dimensions and bar plots for the distribution of images in different sets.
+     ```python
+     plt.figure(figsize=(8, 5))
+     sns.barplot(data=df_freq, x='Set', y='Frequency', hue='Label')
+     plt.savefig(f'{file_path}/labels_distribution.png', bbox_inches='tight', dpi=150)
+     plt.show()
+     ```
+
+4. **Seaborn**
+   - **Purpose**: Seaborn is a statistical data visualization library based on Matplotlib, providing a high-level interface for drawing attractive statistical graphics.
+   - **Usage Example**: You used Seaborn to enhance your plots with better aesthetics, such as in the scatter plots and learning curves of the model’s performance.
+     ```python
+     sns.set_style("whitegrid")
+     losses[['loss', 'val_loss']].plot(style='.-')
+     plt.title("Loss")
+     plt.savefig(f'{file_path}/model_training_losses.png', bbox_inches='tight', dpi=150)
+     plt.show()
+     ```
+
+5. **TensorFlow/Keras**
+   - **Purpose**: TensorFlow is an open-source machine learning framework, while Keras is a high-level API for building and training deep learning models.
+   - **Usage Example**: You employed Keras to build a convolutional neural network (CNN) for image classification, defining the model architecture and training it on the augmented dataset.
+     ```python
+     model = Sequential()
+     model.add(Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
+     model.add(MaxPooling2D(pool_size=(2, 2)))
+     ...
+     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+     ```
+
+6. **Scikit-learn**
+   - **Purpose**: Scikit-learn is a library for machine learning in Python that provides simple and efficient tools for data mining and data analysis.
+   - **Usage Example**: You used Scikit-learn for splitting your dataset into training and testing sets, which is crucial for evaluating your model's performance.
+     ```python
+     from sklearn.model_selection import train_test_split
+     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+     ```
+
+7. **Joblib**
+   - **Purpose**: Joblib is a library for lightweight pipelining in Python, especially useful for saving and loading Python objects efficiently.
+   - **Usage Example**: You used Joblib to save model evaluation results and class indices to avoid recomputation.
+     ```python
+     joblib.dump(value=evaluation, filename=f"outputs/v1/evaluation_results.pkl")
+     ```
+
+8. **Skilearn**
+    - **Purpose**: Used to create the frontend dashboard of the project.
+    - **Usage Example:** Used to create the summary page of the dashboard.
+    ```python
+    import streamlit as st
+    import matplotlib.pyplot as plt
+
+    def page_project_sumary_body():
+        st.write('### Project Summary')
+
+        st.info(
+            f"**About Mildew**\n\n"
+            f"Mildew is a type of fungus that appears as a white powder that consumes organic matter like plants.\n"
+            f"In cherry leaves, it generates a coat preventing the sunlight from reaching the plant, obstructing photosynthesis, "
+            f"compromising the tree's health, and reducing the quality of the cherries.\n\n"
+            f"It not only has repercussions on tree health, but it can also cause respiratory irritation in people sensitive to it. "
+            f"Our client Farmy & Foods spend aproximally 30 minutes per tree to check if the tree is infected or not, in case "
+            f"of infection will take a extra minute to kill the fungus. This process take a lot of time and resources wen the client "
+            f"thousends of trees to check\n\n"
+            f"The purpose of this project is to visually identify healthy vs. powdery mildew leaves and create a "
+            f"Machine Learning model that can classify healthy and powdery mildew leaves to save time and resources.\n\n"
+            f"**Project Dataset**\n\n"
+            f"A dataset of 2,104 images was used, containing healthy and powdery mildew cherry leaves."
+        )
+    ```
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
+- From walktrough [Maleria Detector Project](https://github.com/Luisg882/Malaria-Detector) helped to structure the project coding sequences to achive the business requirements.
 
 ### Content
 
@@ -195,6 +284,3 @@ No other bug was found
 - The photos used on the home and sign-up page are from This Open-Source site.
 - The images used for the gallery page were taken from this other open-source site.
 
-## Acknowledgements (optional)
-
-- Thank the people who provided support throughout this project.

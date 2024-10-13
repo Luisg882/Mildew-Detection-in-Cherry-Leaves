@@ -130,12 +130,35 @@ Image Display & Predictions: For each uploaded image, it displays:
 - **Reference Link** successfully take the user to the new page.
 
 ### Leaves Visualizer Page
-- **Average and Variability Image:** wen clicked successfully load the description of the differences, and the Average image and variability of bouth healthy and powdery mildew images.
-- **Difference between Average Leaves:**
+- **Average and Variability Image:** Wen clicked checkbox successfully load the description of the average and variability image, and displays bouth images of Average nad Variability image of healthy and powdery mildew.
+- **Difference between Average Leaves:** Wen clicked checkbox successfully load the description of the differences of Average and variability imges, and load the difference image.
+- **Image Montage Feature:** 
+ - Wen clicked in the checkbox successfuly show the description text, the label selection with the 2 options Healty and Powedery mildew, and create montage button.
+ - After clicking the montage successfully generate a set of random images of the selected label.
+ - Creating a new montage with the same label creates a new set of random leaves, instead of repeating the previouslly genereted set successfully refreshing the montage.
+ - Wen a montage is generated and the label is changed it automatically removes the generated montage.
+
+### Mildew Detection Page
+- **Download Link** successfully takes the user to a kaggle dataset that allows the person to download a set of images to test the predictions.
+- **File Uploader**:
+ - Doesn't allow to upload any other image than a .png.
+ - After uploading a set of images generates a copy of the image and the evaluation report with the right prediction.
+ - Downloading the report successfully generate a .csv document with date and time.
+ - Try to uplad image with smaller or biger size than 256x256 pixels and was able to generate the prediction.
+
+### Hypothesis Page
+The content of this page is successfully loaded. No interactive features to test in this page.
+
+### ML Performance Page
+The content of this page is successfully loaded. No interactive features to test in this page.
+
+## Fixed Bugs
+
+- The prediction of images different that 256x256px size werent able to be predicted. This was due because the code where expecting 3-channel RGB image but recieves 4-channel images. To fix it we change the code to ensure the uploaded image was properlly converted to the desired RGB format and the correct dimensions before passing it to the model for prediction.
 
 ## Unfixed Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+No other bug was found 
 
 ## Deployment
 

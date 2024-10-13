@@ -47,11 +47,18 @@ def plot_predictions_probabilities(pred_proba, pred_class):
 def resize_input_image(img, version):
     """Reshape image to average image size of 100x100."""
     target_size = (100, 100)  # Set the target size to 100x100
-    img_resized = img.resize(target_size, Image.LANCZOS)  # Resize the image
-    my_image = np.expand_dims(img_resized, axis=0) / 255.0  # Normalize the image and expand dimensions
+
+    # Convert image to RGB format (removes alpha channel if present)
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+
+    # Resize the image
+    img_resized = img.resize(target_size, Image.LANCZOS)  
+
+    # Normalize the image and expand dimensions
+    my_image = np.expand_dims(np.array(img_resized) / 255.0, axis=0)  
 
     return my_image
-
 
 def load_model_and_predict(my_image, version):
     """Load and perform ML prediction over live images."""

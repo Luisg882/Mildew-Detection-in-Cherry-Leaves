@@ -40,12 +40,55 @@ These visualizations will help answer the business question of whether healthy a
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+**Current Process:** The company currently spends around 30 minutes per tree inspecting leaves manually. This process is not scalable for large farms, leading to increased labor costs and inefficiencies.
+
+**Proposed Solution:** The ML model will provide real-time detection of powdery mildew from images of cherry leaves, reducing the time required for inspection and allowing the company to scale the inspection process.
+
+**Key Benefits:** 
+- **Cost Reduction:** Automated leaf inspection will save significant time and labor costs.
+- **Improved Efficiency:** The process will become scalable across large cherry plantations.
+- **Product Quality:** The system will ensure better quality control by identifying and treating powdery mildew in its early stages.
 
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+### Project Summary Page:
+- **Content:**
+    - Overview of the project, including the business requirements and dataset description.
+    - Key findings from the visual study of healthy vs. powdery mildew leaves.
+
+### Visual Differentioation Study Page:
+- **Content**
+    - Average images, variability images, and difference images between healthy and infected leaves.
+    - Image montage for both categories to give a holistic view of the dataset.
+    - Interactive buttons or checkboxes to toggle between different visual analysis types.
+
+### Prediction SYStem Page:
+- **Content:**
+    - File uploader widget: Allows users to upload multiple cherry leaf images.
+    - Predictions: The dashboard displays the uploaded image with a prediction of whether the leaf is healthy or infected. It also provides the probability score for each prediction.
+    - Table: Displays a list of uploaded images along with their prediction results.
+    - Download button: Allows users to download the table of prediction results.
+
+### Project Hypothesis and Validation Page:
+- **Content:**
+    - List the project hypotheses and how each was validated.
+    - Provides visual and statistical evidence supporting the differentiation of leaves and the performance of the ML model.
+
+### Model Performace Page:
+- **Content:**
+    - Performance metrics of the ML model as learning curve, average accuracy and loss in predictions.
+    - Insights into any improvements or optimizations made during the model development process.
+
+## Ethical and Pruvacy Considerations
+- **Data Confidentiality:** The dataset provided by Farmy & Foods is under an NDA, meaning it cannot be shared outside the project team.
+- **Data Usage:** The data will only be used for the purposes of this project, and any outputs (such as visualizations or models) will not expose sensitive or identifying information. All training and test datasets won't be shared in project repo.
+
+## Technical Considerations
+- **Image Size:** The original dataset consists of 256x256 pixel images. To balance model performance and file size, we may consider resizing images to 100x100 or 50x50 pixels. This will help maintain the model's size under 100Mb, ensuring smooth integration with GitHub.
+- **Model Type:** A binary classification model will be used to predict whether a cherry leaf is healthy or infected. For this project a Conventional Neural Network will be used.
+- **Performance Goal:** The model is expected to achieve a minimum accuracy of 97%, as agreed upon with the client.
+
+
 
 ## Unfixed Bugs
 

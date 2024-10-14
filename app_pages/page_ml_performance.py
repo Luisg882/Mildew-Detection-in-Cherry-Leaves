@@ -14,7 +14,13 @@ def page_ml_performance_body():
     st.write(f"### Train, Validation, and Test Set: Labels Frequencies")
     st.image('outputs/v1/labels_distribution.png', caption='Labels Frequency', use_column_width=True)
 
-    st.write("### Model History")
+    st.write(
+        f"### Model Learning Curve\n\n"
+        f"The training accuracy starts high and slightly improves over epochs, while loss decreases "
+        f"over epochs. Validation accuracy fluctuates, but remains consistently high "
+        f"(~98-99%) after the initial epochs, while the loss shows the same pattern of flutuation "
+        f"but decreases, suggesting the model learns well without significant overfitting.\n\n"
+        )
     col1, col2 = st.beta_columns(2)
     with col1:
         model_acc = plt.imread(f"outputs/{version}/model_training_acc.png")
@@ -24,5 +30,9 @@ def page_ml_performance_body():
         st.image(model_loss, caption='Model Training Losses')
     st.write("---")
 
-    st.write("### Generalised Performance on Test Set")
+    st.write(
+        f"### Generalised Performance on Test Set\n\n"
+        f"With a very low test set loss and a high test accuracy, the model generalizes well "
+        f"to unseen data. This is an excellent result, suggesting the model is highly accurate in identifying"
+        )
     st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Accuracy']))

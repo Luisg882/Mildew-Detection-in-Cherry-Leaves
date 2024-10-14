@@ -17,28 +17,26 @@ There are distinguishable visual patterns between healthy leaves and leaves infe
 - **Validation:** We will use image analysis techniques such as averaging, variability, and difference images to identify potential visual patterns. Comparing these visual patterns will allow us to visually differentiate the two classes of leaves.
 
 ### Hypothesis 2:
-A machine learning model that can predict wheter a leaf is healthy or infected with powdery mildew with powdery mildew with high accuracy.
+A machine learning model that can predict whether a leaf is healthy or infected with powdery mildew with powdery mildew with high accuracy.
 - **Validation:** We will build a classification model using a dataset of labeled cherry leaf images, healthy vs powdery mildew, and measure its accuracy and loss on predictions.
-
-
 
 ### Business Requirement 1: 
 The client is interested in conducting a study to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
 
-**Rational:** To create the visual study we are going to generate several visualizations:
+**Rationale:** To create the visual study we are going to generate several visualizations:
 - **Average Image:** Creating average images of healthy and infected leaves to identify general patterns.
 - **Variability Images:** Displaying the differences between each category to highlight consistent features.
-- **Difference Image:** Creating a differene image between healthy and powdery mildew leaves to highlight the areas of the image that differ the most.
+- **Difference Image:** Creating a difference image between healthy and powdery mildew leaves to highlight the areas of the image that differ the most.
 
 These visualizations will help answer the business question of whether healthy and infected leaves are visually distinct, and if so, how.
 
 ### Business Requirement 2: 
 The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
-**Rationales:** Develop a Machine Learning model that can automatically classify images of healthy or powedery mildew leaves. This involves:
+**Rationale:** Develop a Machine Learning model that can automatically classify images of healthy or powedered mildew leaves. This involves:
 - **Data Preprocessing:** Resizing, and augmenting the leaf images to ensure they are suitable for machine learning.
 - **Model Development:** Building a Convolutional Neural Network (CNN) to classify the images.
-- **Model Evaluation:** Evaluate the model performance. The agreed performace with the client is a accuracy of at least 97%.
+- **Model Evaluation:** Evaluate the model performance. The agreed performance with the client is an accuracy of at least 97%.
 
 ## ML Business Case
 
@@ -83,14 +81,13 @@ The client is interested in predicting if a cherry leaf is healthy or contains p
     - Performance metrics of the ML model as learning curve, average accuracy and loss in predictions.
     - Insights into any improvements or optimizations made during the model development process.
 
-## Ethical and Pruvacy Considerations
+## Ethical and Privacy Considerations
 - **Data Confidentiality:** The dataset provided by Farmy & Foods is under an NDA, meaning it cannot be shared outside the project team.
 - **Data Usage:** The data will only be used for the purposes of this project, and any outputs (such as visualizations or models) will not expose sensitive or identifying information. All training and test datasets won't be shared in project repo.
 
 ## Technical Considerations
 - **Image Size:** The original dataset consists of 256x256 pixel images. To balance model performance and file size, we may consider resizing images to 100x100 or 50x50 pixels. This will help maintain the model's size under 100Mb, ensuring smooth integration with GitHub.
 - **Model Type:** A binary classification model will be used to predict whether a cherry leaf is healthy or infected. For this project a Conventional Neural Network will be used.
->>>>>>> 9002feecb0bc5987b40ba40c8943bd44421a1a7c
 - **Performance Goal:** The model is expected to achieve a minimum accuracy of 97%, as agreed upon with the client.
 
 ## Dashboard Features
@@ -295,24 +292,24 @@ Image Display & Predictions: For each uploaded image, it displays:
         st.write('### Project Summary')
 
         st.info(
-            f"**About Mildew**\n\n"
-            f"Mildew is a type of fungus that appears as a white powder that consumes organic matter like plants.\n"
-            f"In cherry leaves, it generates a coat preventing the sunlight from reaching the plant, obstructing photosynthesis, "
-            f"compromising the tree's health, and reducing the quality of the cherries.\n\n"
-            f"It not only has repercussions on tree health, but it can also cause respiratory irritation in people sensitive to it. "
-            f"Our client Farmy & Foods spend aproximally 30 minutes per tree to check if the tree is infected or not, in case "
-            f"of infection will take a extra minute to kill the fungus. This process take a lot of time and resources wen the client "
-            f"thousends of trees to check\n\n"
-            f"The purpose of this project is to visually identify healthy vs. powdery mildew leaves and create a "
-            f"Machine Learning model that can classify healthy and powdery mildew leaves to save time and resources.\n\n"
-            f"**Project Dataset**\n\n"
-            f"A dataset of 2,104 images was used, containing healthy and powdery mildew cherry leaves."
-        )
+         f"**About Mildew**\n\n"
+         f"Mildew is a type of fungus that appears as a white powder that consumes organic matter like plants.\n"
+         f"In cherry leaves, it generates a coat preventing the sunlight from reaching the plant, obstructing photosynthesis, "
+         f"compromising the tree's health, and reducing the quality of the cherries.\n\n"
+         f"It not only has repercussions on tree health, but it can also cause respiratory irritation in people sensitive to it. "
+         f"Our client Farmy & Foods spend approximally 30 minutes per tree to check if the tree is infected or not, in case "
+         f"of infection will take an extra minute to kill the fungus. This process takes a lot of time and resources when the client "
+         f"have thousands of trees to check\n\n"
+         f"The purpose of this project is to visually identify healthy vs. powdery mildew leaves and create a "
+         f"Machine Learning model that can classify healthy and powdery mildew leaves to save time and resources.\n\n"
+         f"**Project Dataset**\n\n"
+         f"A dataset of 2,104 images was used, containing healthy and powdery mildew cherry leaves."
+    )
     ```
 
 ## Credits
 
-- From walktrough [Maleria Detector Project](https://github.com/Luisg882/Malaria-Detector) helped to structure the project coding sequences to achive the business requirements.
+- From walkthrough [Maleria Detector Project](https://github.com/Luisg882/Malaria-Detector) helped to structure the project coding sequences to achieve the business requirements.
 
 ### Media
 

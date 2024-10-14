@@ -212,7 +212,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 1. **Pandas**
    - **Purpose**: Pandas is a powerful library for data manipulation and analysis, providing data structures like DataFrames.
-   - **Usage Example**: In your project, you used Pandas to create a frequency DataFrame for counting images in different sets (train, validation, test) based on their labels.
+   - **Usage Example**: Used Pandas to create a frequency DataFrame for counting images in different sets (train, validation, test) based on their labels.
      ```python
      df_freq = pd.DataFrame([])
      for folder in ['train', 'validation', 'test']:
@@ -228,7 +228,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 2. **NumPy**
    - **Purpose**: NumPy is a library for numerical computations, providing support for large multi-dimensional arrays and matrices.
-   - **Usage Example**: You used NumPy to handle and manipulate numerical data, particularly when calculating average dimensions of resized images.
+   - **Usage Example**: Used NumPy to handle and manipulate numerical data, particularly when calculating average dimensions of resized images.
      ```python
      dim1_mean = int(np.array(dim1).mean())
      dim2_mean = int(np.array(dim2).mean())
@@ -236,7 +236,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 3. **Matplotlib**
    - **Purpose**: Matplotlib is a plotting library that enables the creation of static, animated, and interactive visualizations in Python.
-   - **Usage Example**: You utilized Matplotlib to create scatter plots for visualizing resized image dimensions and bar plots for the distribution of images in different sets.
+   - **Usage Example**: Used to create scatter plots for visualizing resized image dimensions and bar plots for the distribution of images in different sets.
      ```python
      plt.figure(figsize=(8, 5))
      sns.barplot(data=df_freq, x='Set', y='Frequency', hue='Label')
@@ -246,7 +246,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 4. **Seaborn**
    - **Purpose**: Seaborn is a statistical data visualization library based on Matplotlib, providing a high-level interface for drawing attractive statistical graphics.
-   - **Usage Example**: You used Seaborn to enhance your plots with better aesthetics, such as in the scatter plots and learning curves of the model’s performance.
+   - **Usage Example**: Used Seaborn to enhance your plots with better aesthetics, such as in the scatter plots and learning curves of the model’s performance.
      ```python
      sns.set_style("whitegrid")
      losses[['loss', 'val_loss']].plot(style='.-')
@@ -257,7 +257,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 5. **TensorFlow/Keras**
    - **Purpose**: TensorFlow is an open-source machine learning framework, while Keras is a high-level API for building and training deep learning models.
-   - **Usage Example**: You employed Keras to build a convolutional neural network (CNN) for image classification, defining the model architecture and training it on the augmented dataset.
+   - **Usage Example**: Used to build a convolutional neural network (CNN) for image classification, defining the model architecture and training it on the augmented dataset.
      ```python
      model = Sequential()
      model.add(Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
@@ -268,7 +268,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 6. **Scikit-learn**
    - **Purpose**: Scikit-learn is a library for machine learning in Python that provides simple and efficient tools for data mining and data analysis.
-   - **Usage Example**: You used Scikit-learn for splitting your dataset into training and testing sets, which is crucial for evaluating your model's performance.
+   - **Usage Example**: Used Scikit-learn for splitting your dataset into training and testing sets, which is crucial for evaluating your model's performance.
      ```python
      from sklearn.model_selection import train_test_split
      X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -276,7 +276,7 @@ Image Display & Predictions: For each uploaded image, it displays:
 
 7. **Joblib**
    - **Purpose**: Joblib is a library for lightweight pipelining in Python, especially useful for saving and loading Python objects efficiently.
-   - **Usage Example**: You used Joblib to save model evaluation results and class indices to avoid recomputation.
+   - **Usage Example**: Used Joblib to save model evaluation results and class indices to avoid recomputation.
      ```python
      joblib.dump(value=evaluation, filename=f"outputs/v1/evaluation_results.pkl")
      ```

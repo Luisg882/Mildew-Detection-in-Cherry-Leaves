@@ -307,6 +307,10 @@ Image Display & Predictions: For each uploaded image, it displays:
     )
     ```
 
+## Content
+- How to convert the image into RGB [in this article](https://www.geeksforgeeks.org/python-pil-image-convert-method/)
+- How to change the version of [Heroku](https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack#rolling-back)
+
 ## Credits
 
 - From walkthrough [Maleria Detector Project](https://github.com/Luisg882/Malaria-Detector) helped to structure the project coding sequences to achieve the business requirements.

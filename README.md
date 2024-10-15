@@ -17,7 +17,7 @@ There are distinguishable visual patterns between healthy leaves and leaves infe
 - **Validation:** We will use image analysis techniques such as averaging, variability, and difference images to identify potential visual patterns. Comparing these visual patterns will allow us to visually differentiate the two classes of leaves.
 
 ### Hypothesis 2:
-A machine learning model that can predict whether a leaf is healthy or infected with powdery mildew with powdery mildew with high accuracy.
+A machine learning model that can predict whether a leaf is healthy or infected with high accuracy.
 - **Validation:** We will build a classification model using a dataset of labeled cherry leaf images, healthy vs powdery mildew, and measure its accuracy and loss on predictions.
 
 ### Business Requirement 1: 
@@ -104,7 +104,7 @@ The client is interested in predicting if a cherry leaf is healthy or contains p
 - **Image Comparisons:** Offers checkboxes for displaying various visual comparisons between healthy and powdery mildew leaves:
  - **Average and Variability Image:** Shows a comparison between the average and variability of healthy and mildew-affected leaves.
 
-![image of average and variability image](/static/images/difference-between-average-and-variability-image.jpg)
+![image of average and variability image](/static/images/differences-between-average-healthy-and-powdery-mildew-leaves.jpg)
 
  - **Difference between Average Leaves:** Highlights subtle differences between healthy and mildew-affected leaves.
 
@@ -121,10 +121,10 @@ The client is interested in predicting if a cherry leaf is healthy or contains p
 ### Mildew Detection Page
 - **Instructions for Prediction:** Explains the prediction process, including how to download cherry leaf samples for testing.
 - **File Uploader:** A widget enabling the user to upload multiple leaf images for analysis.
-Image Display & Predictions: For each uploaded image, it displays:
- - The image itself
- - The dimensions of the image
- - The prediction result (whether healthy or affected by mildew)
+Image Display & Predictions, for each uploaded image, it displays:
+  - The image itself
+  - The dimensions of the image
+  - The prediction result (whether healthy or affected by mildew)
 - **Downloadable Report:** A table summarizing the predictions for all uploaded images, with an option to download the report as a CSV file.
 
 ![image of the mildew detector](/static/images/mildew-detector.jpg)
@@ -134,7 +134,6 @@ Image Display & Predictions: For each uploaded image, it displays:
 ### Hypothesis Page
  - **Main Hypothesis:** The hypothesis focuses on visual differences between healthy leaves and those with powdery mildew, such as color, texture, and pigmentation patterns.
  - **Visual Comparisons:** Discusses the lack of significant visual difference between the two leaf types, which challenges the hypothesis.
- - **Graphical Evidence:** Displays the difference between average images of both leaf types to further support the hypothesis.
  - **Machine Learning Task:** Mentions how the Machine Learning (ML) model is built to help detect these differences, achieving 97.13% accuracy, surpassing the business requirement.
  
 ![image of the hypothesis page](/static/images/project-hypotesis.jpg)
@@ -206,7 +205,8 @@ Image Display & Predictions: For each uploaded image, it displays:
 1. Log in to Heroku and create an app.
 2. Select GitHub as the deployment method.
 3. Choose the `mildew-detection-in-cherry-leafs` repository.
-4. Deploy the project from the main branch.
+4. Change heroku version from terminal to stack 20. 
+5. Deploy the project from the main branch.
 
 ## Main Data Analysis and Machine Learning Libraries
 
